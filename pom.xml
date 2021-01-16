@@ -6,12 +6,12 @@
 
     <groupId>com.chutneytesting</groupId>
     <artifactId>idea-server</artifactId>
-    <version>1.2.4</version>
+    <version>1.2.13</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <chutney.version>1.2.4</chutney.version>
+        <chutney.version>1.2.13</chutney.version>
         <h2.version>1.4.197</h2.version>
         <eddsa.version>0.2.0</eddsa.version>
         <activemq-broker.version>5.15.11</activemq-broker.version>
@@ -51,6 +51,18 @@
             <artifactId>activemq-broker</artifactId>
             <version>${activemq-broker.version}</version>
             <scope>runtime</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.18</version>
+        </dependency>
+        <!--javax.xml.bind-->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
         </dependency>
     </dependencies>
 
