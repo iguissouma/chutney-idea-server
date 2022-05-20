@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy to central
+    name: Deploy to github
     steps:
       - uses: actions/checkout@v2
       - name: Set release version environment variable
@@ -51,14 +51,3 @@ jobs:
           asset_path: ${{ github.workspace }}/target/chutney-idea-server-${{ env.RELEASE_VERSION }}.jar
           asset_name: chutney-idea-server-${{ env.RELEASE_VERSION }}.jar
           asset_content_type: application/jar
-
-      - name: Upload signature to github release
-        id: upload-release-asset-fatjar-sig
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ github.workspace }}/target/chutney-idea-server-${{ env.RELEASE_VERSION }}.jar.asc
-          asset_name: chutney-idea-server-${{ env.RELEASE_VERSION }}.jar.asc
-          asset_content_type: application/pgp-signature
