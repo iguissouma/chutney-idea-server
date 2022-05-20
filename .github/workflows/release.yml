@@ -27,7 +27,7 @@ jobs:
       - name: Build with Maven
         env:
           BUILD_ENV: 'github-actions'
-        run: mvn -B -V -Drelease=true clean verify
+        run: mvn -B -V clean verify
 
       - name: Create github release
         id: create_release
