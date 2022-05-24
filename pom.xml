@@ -6,7 +6,7 @@
 
     <groupId>com.chutneytesting</groupId>
     <artifactId>idea-server</artifactId>
-    <version>1.2.14</version>
+    <version>1.2.15-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -22,7 +22,7 @@
         <url>https://github.com/chutney-testing/chutney-idea-server.git</url>
         <connection>scm:git:git@github.com/chutney-testing/chutney-idea-server.git</connection>
         <developerConnection>scm:git:git@github.com/chutney-testing/chutney-idea-server.git</developerConnection>
-        <tag>1.2.14</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <repositories>
