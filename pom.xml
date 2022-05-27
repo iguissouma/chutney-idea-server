@@ -6,7 +6,7 @@
 
     <groupId>com.chutneytesting</groupId>
     <artifactId>idea-server</artifactId>
-    <version>1.2.14</version>
+    <version>1.2.15-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
