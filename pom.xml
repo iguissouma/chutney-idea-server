@@ -6,12 +6,12 @@
 
     <groupId>com.chutneytesting</groupId>
     <artifactId>idea-server</artifactId>
-    <version>1.2.15-SNAPSHOT</version>
+    <version>1.2.15</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <chutney.version>1.4.8</chutney.version>
+        <chutney.version>1.4.9</chutney.version>
         <h2.version>1.4.197</h2.version>
         <eddsa.version>0.2.0</eddsa.version>
         <activemq-broker.version>5.15.11</activemq-broker.version>
