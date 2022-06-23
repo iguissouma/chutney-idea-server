@@ -1,0 +1,53 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '*.*.*'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy to github
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set release version environment variable
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Set up build
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: 11
+          server-id: ossrh
+          server-username: OSSRH_USERNAME
+          server-password: OSSRH_PASSWORD
+          gpg-private-key: ${{ secrets.CHUTNEY_GPG_PRIVATE_KEY }}
+          gpg-passphrase: CHUTNEY_GPG_PASSPHRASE
+
+      - name: Build with Maven
+        env:
+          BUILD_ENV: 'github-actions'
+        run: mvn -B -V clean verify
+
+      - name: Create github release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: 'TODO'
+          draft: false
+          prerelease: false
+
+      - name: Upload fatjar to github release
+        id: upload-release-asset-fatjar
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ github.workspace }}/target/chutney-idea-server-${{ env.RELEASE_VERSION }}.jar
+          asset_name: chutney-idea-server-${{ env.RELEASE_VERSION }}.jar
+          asset_content_type: application/jar
