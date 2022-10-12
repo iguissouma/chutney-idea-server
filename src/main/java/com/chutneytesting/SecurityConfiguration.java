@@ -1,7 +1,7 @@
 package com.chutneytesting;
 
 import com.chutneytesting.security.api.UserDto;
-import com.chutneytesting.security.domain.Authorization;
+import com.chutneytesting.server.core.domain.security.Authorization;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
